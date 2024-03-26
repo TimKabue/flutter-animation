@@ -7,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../dashboard/dashboard_page.dart';
 
+//TODO: Check if we provide the Cubit here.
+
 //Home page
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
