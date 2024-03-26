@@ -1,6 +1,6 @@
 # animation_tutorial
 
-A tutorial based project.
+A tutorial based project in animation.
 
 ## Implicit Animation in Flutter
 
