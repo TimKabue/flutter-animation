@@ -8,7 +8,7 @@ final class LecturePageInitial extends LecturePageState {}
 //SmallScreenState can only be triggered when a 'lecture' button has been pressed.
 final class SmallScreenState extends LecturePageState {
   //Field
-  String lecturePageName;
+  final String lecturePageName;
 
   //Constructor
   SmallScreenState({required this.lecturePageName});
@@ -17,7 +17,7 @@ final class SmallScreenState extends LecturePageState {
 //LargeScreenState can only be triggered when a 'lecture' button has been pressed.
 final class LargeScreenState extends LecturePageState {
   //Field
-  String lecturePageName;
+  final String lecturePageName;
 
   //Constructor
   LargeScreenState({required this.lecturePageName});

@@ -1,19 +1,16 @@
 import 'package:animation_tutorial/application/core/page_config.dart';
-import 'package:animation_tutorial/application/pages/demo/demo_page.dart';
 import 'package:animation_tutorial/application/pages/home/bloc/lecture_page_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 //Constants
-const _basePath = '/home';
 
 //Dashboard page
 class DashboardPage extends StatefulWidget {
   //Fields
-  final String _id; //This is obtained from the url parameters.
+//This is obtained from the url parameters.
 
-  const DashboardPage({super.key, String? id}) : _id = id ?? 'animatedAlign';
+  const DashboardPage({super.key, String? id});
 
   //Page configuration
   static PageConfig pageConfig = const PageConfig(
