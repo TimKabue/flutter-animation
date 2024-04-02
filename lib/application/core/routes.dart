@@ -1,3 +1,4 @@
+import 'package:animation_tutorial/application/pages/demo/demo_page.dart';
 import 'package:animation_tutorial/application/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -6,6 +7,7 @@ import '../pages/lecture1_animatedAlign/lecture1.dart';
 
 //Constants
 const _basePath = '/home';
+const _appTitle = 'Implicit Animation Demonstration';
 
 final routes = GoRouter(
   //TODO: Implement navigator keys and observers
@@ -15,6 +17,9 @@ final routes = GoRouter(
       //TODO: Implement navigatorKey
       builder: (context, state, child){
         return Scaffold(
+          appBar: AppBar(
+            title: const Text(_appTitle),
+          ),
           body: SafeArea(
             child: child,
           ),
@@ -25,13 +30,14 @@ final routes = GoRouter(
         GoRoute(
           name: HomePage.pageConfig.name,
           path: _basePath,
-          builder: (context, state) => const HomePage(),
+          builder: (context, state) => const HomePageProvider(),
         ),
-        //---Lecture 1 : Animated Align demonstration page
+        //TODO: Implement correct routing
+        //---Animated Align demonstration page
         GoRoute(
-          name: 'lecture1',
-          path: '$_basePath/lecture1',
-          builder: (context, state) => const Lecture1(),
+          name: 'animated-demonstration',
+          path: '$_basePath/animation-demonstration/:lectureID',
+          builder: (context, state) => AnimationDemoPage(displayPage: state.pathParameters['lectureID'] ?? 'defaultScreen'),
         ),
       ],
     ),

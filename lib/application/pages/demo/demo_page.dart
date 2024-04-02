@@ -15,7 +15,7 @@ class AnimationDemoPage extends StatefulWidget {
 
   //Map of displayable pages
   static const Map<String, Widget> pages = {
-    'messageScreen': Placeholder(
+    'defaultScreen': Placeholder(
       color: Colors.blue,
       child: Text(
         'Press a button on the left screen',

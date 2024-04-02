@@ -7,7 +7,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../dashboard/dashboard_page.dart';
 
-//TODO: Check if we provide the Cubit here.
+//Home page provider
+class HomePageProvider extends StatelessWidget {
+  const HomePageProvider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (BuildContext context) { return LecturePageCubit(); },
+      child: const HomePage(),
+    );
+  }
+}
 
 //Home page
 class HomePage extends StatefulWidget {
@@ -41,21 +52,22 @@ class _HomePageState extends State<HomePage> {
                   builder: (_) {
                     //SmallScreenState indicates that a 'lecture' button has been
                     //pressed. This state carries with it the 'lecture' id.
-                    if (state is SmallScreenState || state is LargeScreenState) {
+                    if (state is SmallScreenState ||
+                        state is LargeScreenState) {
                       // Cast state to the specific subclass before accessing lecturePageName
-                      String lecturePageName = (state is LargeScreenState) ? state.lecturePageName : (state as SmallScreenState).lecturePageName;
-                      return AnimationDemoPage(
-                          displayPage: lecturePageName);
+                      String lecturePageName = (state is LargeScreenState)
+                          ? state.lecturePageName
+                          : (state as SmallScreenState).lecturePageName;
+                      return AnimationDemoPage(displayPage: lecturePageName);
                     }
                     return const DashboardPage();
                   }),
               //In large screens the body always contains the 'Dashboard page'
               Breakpoints.mediumAndUp: SlotLayout.from(
-                key: const Key('primary-body-medium'),
-                builder: (_){
-                  return const DashboardPage();
-                }
-              ),
+                  key: const Key('primary-body-medium'),
+                  builder: (_) {
+                    return const DashboardPage();
+                  }),
             },
           ),
           secondaryBody: SlotLayout(
@@ -67,13 +79,18 @@ class _HomePageState extends State<HomePage> {
                   builder: (_) {
                     debugPrint('builder running...');
                     debugPrint('state is ${state.toString()}');
-                    if(state is LargeScreenState  || state is SmallScreenState){
-                      debugPrint('State detected as LargeScreenState in the HomePage/AdaptiveLayout');
+                    if (state is LargeScreenState ||
+                        state is SmallScreenState) {
+                      debugPrint(
+                          'State detected as LargeScreenState in the HomePage/AdaptiveLayout');
                       // Cast state to the specific subclass before accessing lecturePageName
-                      String lecturePageName = (state is LargeScreenState) ? state.lecturePageName : (state as SmallScreenState).lecturePageName;
+                      String lecturePageName = (state is LargeScreenState)
+                          ? state.lecturePageName
+                          : (state as SmallScreenState).lecturePageName;
                       return AnimationDemoPage(displayPage: lecturePageName);
                     }
-                    return const AnimationDemoPage(displayPage: 'messageScreen');
+                    return const AnimationDemoPage(
+                        displayPage: 'defaultScreen');
                   }),
             },
           ),
