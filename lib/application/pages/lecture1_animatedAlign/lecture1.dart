@@ -1,3 +1,4 @@
+//Animated Align Demo
 import 'package:flutter/material.dart';
 
 class Lecture1 extends StatefulWidget {

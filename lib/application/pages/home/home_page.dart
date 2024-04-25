@@ -47,18 +47,15 @@ class _HomePageState extends State<HomePage> {
               //In small screens the body may contain either the 'Dashboard page'
               //or 'Animation demo page' depending on whether a button has been
               //pressed.
-              Breakpoints.smallAndUp: SlotLayout.from(
+              Breakpoints.small: SlotLayout.from(
                   key: const Key('primary-body-small'),
                   builder: (_) {
-                    //SmallScreenState indicates that a 'lecture' button has been
-                    //pressed. This state carries with it the 'lecture' id.
-                    if (state is SmallScreenState ||
-                        state is LargeScreenState) {
-                      // Cast state to the specific subclass before accessing lecturePageName
-                      String lecturePageName = (state is LargeScreenState)
-                          ? state.lecturePageName
-                          : (state as SmallScreenState).lecturePageName;
-                      return AnimationDemoPage(displayPage: lecturePageName);
+                    //If the state emitted by the cubit is 'ButtonPressedState'
+                    //this indicates that a button has been pressed.
+                    //The specific details of the button pressed are contained
+                    //in the state's displayPage(String) value.
+                    if (state is ButtonPressedState) {
+                      return AnimationDemoPage(displayPage: state.displayPage);
                     }
                     return const DashboardPage();
                   }),
@@ -79,15 +76,8 @@ class _HomePageState extends State<HomePage> {
                   builder: (_) {
                     debugPrint('builder running...');
                     debugPrint('state is ${state.toString()}');
-                    if (state is LargeScreenState ||
-                        state is SmallScreenState) {
-                      debugPrint(
-                          'State detected as LargeScreenState in the HomePage/AdaptiveLayout');
-                      // Cast state to the specific subclass before accessing lecturePageName
-                      String lecturePageName = (state is LargeScreenState)
-                          ? state.lecturePageName
-                          : (state as SmallScreenState).lecturePageName;
-                      return AnimationDemoPage(displayPage: lecturePageName);
+                    if (state is ButtonPressedState) {
+                      return AnimationDemoPage(displayPage: state.displayPage);
                     }
                     return const AnimationDemoPage(
                         displayPage: 'defaultScreen');

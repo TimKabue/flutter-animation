@@ -1,5 +1,6 @@
 import 'package:animation_tutorial/application/core/page_config.dart';
 import 'package:animation_tutorial/application/pages/lecture1_animatedAlign/lecture1.dart';
+import 'package:animation_tutorial/application/pages/lecture2_AnimatedContainer/lecture2.dart';
 import 'package:flutter/material.dart';
 
 class AnimationDemoPage extends StatefulWidget {
@@ -22,6 +23,7 @@ class AnimationDemoPage extends StatefulWidget {
       ),
     ),
     'lecture1': Lecture1(),
+    'lecture2': Lecture2(),
   };
 
   @override
@@ -33,6 +35,6 @@ class _AnimationDemoPageState extends State<AnimationDemoPage> {
   Widget build(BuildContext context) {
     //Select the appropriate page to display.
     final Widget? toDisplay = AnimationDemoPage.pages[widget.displayPage];
-    return toDisplay ?? const Placeholder();
+    return toDisplay ?? const Placeholder(color: Colors.green,);
   }
 }

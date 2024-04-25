@@ -8,24 +8,9 @@ part 'lecture_page_state.dart';
 class LecturePageCubit extends Cubit<LecturePageState> {
   LecturePageCubit() : super(LecturePageInitial());
 
-  //Update page method.
-  void updatePage(BuildContext context, String lecturePageName){
-
-    //Determine the current screen size
-    final screenSize = MediaQuery.of(context).size;
-    final breakpoint = screenSize.width < 600 ? 'small' : 'large';
-
-    //Emit different states based on the breakpoint
-    if(breakpoint == 'small') {
-      //context.goNamed('animated-demonstration', pathParameters: {'lectureID': lecturePageName});
-      emit(SmallScreenState(lecturePageName: lecturePageName));
-      //Route to the 'lecture1' page
-      //context.goNamed('lecture1');
-    } else {
-      debugPrint('CUBIT: Large Screen detected');
-      emit(LargeScreenState(lecturePageName: lecturePageName));
-      debugPrint('CUBIT LargeScreenState emitted.');
-    }
-
+  //Method activated when button is pressed.
+  void buttonPressed(String toDisplay) {
+    //Emit the button pressed state and pass the animation page to be displayed.
+    emit(ButtonPressedState(displayPage: toDisplay));
   }
 }

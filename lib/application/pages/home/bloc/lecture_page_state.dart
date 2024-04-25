@@ -5,20 +5,10 @@ sealed class LecturePageState {}
 
 final class LecturePageInitial extends LecturePageState {}
 
-//SmallScreenState can only be triggered when a 'lecture' button has been pressed.
-final class SmallScreenState extends LecturePageState {
+final class ButtonPressedState extends LecturePageState{
   //Field
-  final String lecturePageName;
+  final String displayPage;
 
   //Constructor
-  SmallScreenState({required this.lecturePageName});
-}
-
-//LargeScreenState can only be triggered when a 'lecture' button has been pressed.
-final class LargeScreenState extends LecturePageState {
-  //Field
-  final String lecturePageName;
-
-  //Constructor
-  LargeScreenState({required this.lecturePageName});
+  ButtonPressedState({required this.displayPage});
 }

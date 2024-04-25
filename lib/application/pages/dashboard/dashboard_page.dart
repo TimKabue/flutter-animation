@@ -32,13 +32,22 @@ class _DashboardPageState extends State<DashboardPage> {
           child: Center(
             child: ElevatedButton(
               onPressed: () {
-                //Route to the 'lecture1' page
-                //context.goNamed('lecture1');
-
                 //Call the Cubit method to route to 'lecture1' page
-                context.read<LecturePageCubit>().updatePage(context, 'lecture1');
+                context.read<LecturePageCubit>().buttonPressed('lecture1');
               },
               child: const Text('Lecture 1: Animated Align'),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                //Call the Cubit method to route to 'lecture1' page
+                context.read<LecturePageCubit>().buttonPressed('lecture2');
+              },
+              child: const Text('Lecture 2: Animated Container'),
             ),
           ),
         ),
