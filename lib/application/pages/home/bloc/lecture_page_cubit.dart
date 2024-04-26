@@ -13,10 +13,20 @@ class LecturePageCubit extends Cubit<LecturePageState> {
   //Method activated when button is pressed.
   void buttonPressed(BuildContext context, String toDisplay) {
     const basePath = '/home';
-    // Go to the named route
+
+    // FIRST: Go to the dashboard route
     String path = '$basePath/animation-demonstration/$toDisplay';
     context.go(path);
-    //Emit the button pressed state and pass the animation page to be displayed.
-    emit(ButtonPressedState(displayPage: toDisplay));
+  }
+
+  // TODO: Create a method to emit the initial state to redisplay the dashboard
+  void resetState(){
+    emit(LecturePageInitial());
+  }
+
+  void updateStateForLecture(lectureId) {
+    // FIRST: Emit the button pressed state and pass the animation page
+    // to be displayed.
+    emit(ButtonPressedState(displayPage: lectureId));
   }
 }

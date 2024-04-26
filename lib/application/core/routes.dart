@@ -1,8 +1,10 @@
 import 'package:animation_tutorial/application/pages/demo/demo_page.dart';
 import 'package:animation_tutorial/application/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../pages/home/bloc/lecture_page_cubit.dart';
 import '../pages/lecture1_animatedAlign/lecture1.dart';
 
 //Constants
@@ -30,7 +32,11 @@ final routes = GoRouter(
         GoRoute(
           name: HomePage.pageConfig.name,
           path: _basePath,
-          builder: (context, state) => const HomePageProvider(),
+          builder: (context, state) {
+            // Reset the state
+            context.read<LecturePageCubit>().resetState();
+            return const HomePage();
+          },
         ),
         //TODO: Implement correct routing
         //---Animated Align demonstration page
@@ -38,7 +44,14 @@ final routes = GoRouter(
           name: 'animated-demonstration',
           path: '$_basePath/animation-demonstration/:lectureID',
           //builder: (context, state) => AnimationDemoPage(displayPage: state.pathParameters['lectureID'] ?? 'defaultScreen'),
-          builder: (context, state) => const HomePageProvider(),
+          builder: (context, state) {
+            // Possibly update state based on URL parameter
+            final lectureId = state.pathParameters['lectureID'];
+            if (lectureId != null) {
+              context.read<LecturePageCubit>().updateStateForLecture(lectureId);
+            }
+            return const HomePage();
+          },
         ),
       ],
     ),

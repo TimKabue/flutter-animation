@@ -12,10 +12,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: appTitle,
-      //TODO: Implement localizations and themes.
-      routerConfig: routes,
+    return BlocProvider(
+      create: (context) => LecturePageCubit(),
+      child: MaterialApp.router(
+        title: appTitle,
+        //TODO: Implement localizations and themes.
+        routerConfig: routes,
+      ),
     );
   }
 }

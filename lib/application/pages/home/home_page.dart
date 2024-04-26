@@ -8,17 +8,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../dashboard/dashboard_page.dart';
 
 //Home page provider
-class HomePageProvider extends StatelessWidget {
-  const HomePageProvider({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) { return LecturePageCubit(); },
-      child: const HomePage(),
-    );
-  }
-}
+// class HomePageProvider extends StatelessWidget {
+//   const HomePageProvider({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider(
+//       create: (BuildContext context) { return LecturePageCubit(); },
+//       child: const HomePage(),
+//     );
+//   }
+// }
 
 //Home page
 class HomePage extends StatefulWidget {
@@ -54,6 +54,8 @@ class _HomePageState extends State<HomePage> {
                     //this indicates that a button has been pressed.
                     //The specific details of the button pressed are contained
                     //in the state's displayPage(String) value.
+                    debugPrint('builder running body/Breakpoints.small');
+                    debugPrint('state in body/Breakpoints.small is ${state.toString()}');
                     if (state is ButtonPressedState) {
                       return AnimationDemoPage(displayPage: state.displayPage);
                     }
