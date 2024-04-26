@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../pages/home/bloc/lecture_page_cubit.dart';
 
@@ -12,7 +13,6 @@ class LectureButton extends StatelessWidget {
     super.key,
     required this.displayPage,
     required this.buttonTitle,
-
   });
 
   @override
@@ -23,7 +23,9 @@ class LectureButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             //Call the Cubit method to route to 'lecture1' page
-            context.read<LecturePageCubit>().buttonPressed(displayPage);
+            context
+                .read<LecturePageCubit>()
+                .buttonPressed(context, displayPage);
           },
           child: Text(buttonTitle),
         ),
