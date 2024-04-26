@@ -3,6 +3,8 @@ import 'package:animation_tutorial/application/pages/home/bloc/lecture_page_cubi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../components/lectureButton/lectureButton.dart';
+
 //Constants
 
 //Dashboard page
@@ -26,32 +28,12 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                //Call the Cubit method to route to 'lecture1' page
-                context.read<LecturePageCubit>().buttonPressed('lecture1');
-              },
-              child: const Text('Lecture 1: Animated Align'),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                //Call the Cubit method to route to 'lecture1' page
-                context.read<LecturePageCubit>().buttonPressed('lecture2');
-              },
-              child: const Text('Lecture 2: Animated Container'),
-            ),
-          ),
-        ),
+      children: const [
+        LectureButton(displayPage: 'lecture1', buttonTitle: 'Lecture 1: Animated Align'),
+        LectureButton(displayPage: 'lecture2', buttonTitle: 'Lecture 2: Animated Container',),
+        LectureButton(displayPage: 'lecture3', buttonTitle: 'Lecture 3: Test button',),
       ],
     );
   }
 }
+
