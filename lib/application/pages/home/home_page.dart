@@ -65,6 +65,8 @@ class _HomePageState extends State<HomePage> {
               Breakpoints.mediumAndUp: SlotLayout.from(
                   key: const Key('primary-body-medium'),
                   builder: (_) {
+                    debugPrint('builder running body/Breakpoints.mediumAndUp');
+                    debugPrint('state in body/Breakpoints.mediumAndUp is ${state.toString()}');
                     return const DashboardPage();
                   }),
             },
@@ -76,8 +78,8 @@ class _HomePageState extends State<HomePage> {
               Breakpoints.mediumAndUp: SlotLayout.from(
                   key: const Key('secondary-body-medium'),
                   builder: (_) {
-                    debugPrint('builder running...');
-                    debugPrint('state is ${state.toString()}');
+                    debugPrint('builder running secondaryBody/Breakpoints.mediumAndUp');
+                    debugPrint('state in secondaryBody/Breakpoints.mediumAndUp is ${state.toString()}');
                     if (state is ButtonPressedState) {
                       return AnimationDemoPage(displayPage: state.displayPage);
                     }

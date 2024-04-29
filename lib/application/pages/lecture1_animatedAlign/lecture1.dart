@@ -16,11 +16,9 @@ class _Lecture1State extends State<Lecture1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Animated Align Example'),
-      ),
       body: Stack(
         children: [
+          const Text('Animated Align Example'),
           AnimatedAlign(
             alignment: getNextAlignment(_jerryAligned + 1),
             duration: const Duration(

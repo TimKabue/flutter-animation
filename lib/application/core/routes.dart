@@ -43,7 +43,6 @@ final routes = GoRouter(
         GoRoute(
           name: 'animated-demonstration',
           path: '$_basePath/animation-demonstration/:lectureID',
-          //builder: (context, state) => AnimationDemoPage(displayPage: state.pathParameters['lectureID'] ?? 'defaultScreen'),
           builder: (context, state) {
             // Possibly update state based on URL parameter
             final lectureId = state.pathParameters['lectureID'];
