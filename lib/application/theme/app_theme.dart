@@ -10,7 +10,8 @@ final _lightTextTheme = GoogleFonts.emilysCandyTextTheme();
 
 final _lightAppBarTheme = AppBarTheme(
   centerTitle: true,
-  titleTextStyle: GoogleFonts.luxuriousRoman(),
+  titleTextStyle: GoogleFonts.luxuriousRoman(fontSize: 48,),
+  backgroundColor: Colors.orange,
 );
 
 class AppTheme {

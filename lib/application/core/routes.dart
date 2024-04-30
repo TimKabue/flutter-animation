@@ -21,7 +21,6 @@ final routes = GoRouter(
         return Scaffold(
           appBar: AppBar(
             title: const Text(_appTitle),
-            centerTitle: true,
           ),
           body: SafeArea(
             child: child,

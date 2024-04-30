@@ -1,4 +1,5 @@
 import 'package:animation_tutorial/application/pages/home/bloc/lecture_page_cubit.dart';
+import 'package:animation_tutorial/application/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,6 +19,8 @@ class MainApp extends StatelessWidget {
         title: appTitle,
         //TODO: Implement localizations and themes.
         routerConfig: routes,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
       ),
     );
   }
